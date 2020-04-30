@@ -1,0 +1,127 @@
+<odoo>
+  <data>
+
+
+    <!-- Start Parcel Views -->
+
+    <record model="ir.ui.view" id="farm_parcel_list">
+      <field name="name">farm.parcel.list.name</field>
+      <field name="model">agro.farm.parcel</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de parcelas">
+          <field name="display_name"/>
+          <field name="description"/>
+          <field name="number"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="farm_parcel_form">
+      <field name="name">farm.parcel.form.name</field>
+      <field name="model">agro.farm.parcel</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de parcelas">
+          <sheet>
+            <group>
+              <field name="display_name"/>
+              <field name="description"/>
+              <field name="number"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+  <!-- End Parcel Views -->
+
+  <!-- Start Farm Views -->
+
+    <record model="ir.ui.view" id="farm_list">
+      <field name="name">farm.list.name</field>
+      <field name="model">agro.farm</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de fincas">
+          <field name="display_name"/>
+          <field name="description"/>
+          <field name="code"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="farm_form">
+      <field name="name">farm.form.name</field>
+      <field name="model">agro.farm</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de finca">
+          <sheet>
+            <group>
+              <field name="display_name"/>
+              <field name="description"/>
+              <field name="code"/>
+              <!--<field name="farm_ids"/>-->
+
+              <field name="farm_ids" widget="one2many_list">
+                <tree string="Components">
+                  <field name="display_name"/>
+                  <field name="description"/>
+                </tree>
+              </field>
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="agro_action_window">
+      <field name="name">Fincas</field>
+      <field name="res_model">agro.farm</field>
+      <field name="view_mode">list,form</field>
+    </record> 
+
+    <menuitem 
+    name="Fincas" 
+    id="agro_menu" 
+    parent="sale.sale_menu_root"            
+    action="agro_action_window"
+    sequence="1"/>
+
+  <!-- End Farm Views -->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="webservice.action_server">
+      <field name="name">webservice server</field>
+      <field name="model_id" ref="model_webservice_webservice"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="webservice" id="webservice.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="webservice.menu_1" parent="webservice.menu_root"/>
+    <menuitem name="Menu 2" id="webservice.menu_2" parent="webservice.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="webservice.menu_1_list" parent="webservice.menu_1"
+              action="webservice.action_window"/>
+    <menuitem name="Server to list" id="webservice" parent="webservice.menu_2"
+              action="webservice.action_server"/>
+-->
+
+
+
+  </data>
+</odoo>
