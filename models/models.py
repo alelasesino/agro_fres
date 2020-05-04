@@ -28,5 +28,5 @@ class Parcel(models.Model):
     name = fields.Char(string='Nombre')
     description = fields.Char(string='Descripción')
     number = fields.Char(string='Número')
-    farm_id = fields.Many2one('agro.farm', 'Finca', ondelete='cascade', auto_join=True)
+    farm_id = fields.Many2one('agro.farm', 'Finca', ondelete='cascade', auto_join=True, required=True)
 
