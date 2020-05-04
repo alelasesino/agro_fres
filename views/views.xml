@@ -9,9 +9,10 @@
       <field name="model">agro.farm.parcel</field>
       <field name="arch" type="xml">
         <tree string="Lista de parcelas">
-          <field name="display_name"/>
+          <field name="name"/>
           <field name="description"/>
           <field name="number"/>
+          <field name="farm_id"/>
         </tree>
       </field>
     </record>
@@ -22,14 +23,30 @@
       <field name="arch" type="xml">
         <form string="Formulario de parcelas">
           <sheet>
+            <div class="oe_title">
+              <h1>
+                  <field name="name" readonly="1"/>
+              </h1>
+            </div>
             <group>
-              <field name="display_name"/>
-              <field name="description"/>
-              <field name="number"/>
+              <group>
+                <field name="name"/>
+                <field name="description"/>
+              </group>
+              <group>
+                <field name="number"/>
+                <field name="farm_id"/> <!-- attrs="{'invisible':[('id','!=', False)]}" -->
+              </group>
             </group>
           </sheet>
         </form>
       </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="agro_parcela_action_window">
+      <field name="name">Lista de parcelas</field>
+      <field name="res_model">agro.farm.parcel</field>
+      <field name="view_mode">list,form</field>
     </record>
 
   <!-- End Parcel Views -->
@@ -41,7 +58,7 @@
       <field name="model">agro.farm</field>
       <field name="arch" type="xml">
         <tree string="Lista de fincas">
-          <field name="display_name"/>
+          <field name="name"/>
           <field name="description"/>
           <field name="code"/>
         </tree>
@@ -54,39 +71,64 @@
       <field name="arch" type="xml">
         <form string="Formulario de finca">
           <sheet>
+            <div class="oe_title">
+              <h1>
+                  <field name="name" readonly="1"/>
+              </h1>
+            </div>
             <group>
-              <field name="display_name"/>
-              <field name="description"/>
-              <field name="code"/>
-              <!--<field name="farm_ids"/>-->
-
-              <field name="farm_ids" widget="one2many_list">
-                <tree string="Components">
-                  <field name="display_name"/>
-                  <field name="description"/>
-                </tree>
-              </field>
-
+              <group>
+                <field name="name"/>
+                <field name="description"/>
+              </group>
+              <group>
+                <field name="code"/>
+              </group>
             </group>
+            <notebook>
+              <page string="Parcelas">
+                  <field name="parcel_ids" widget="one2many_list">
+                    <tree string="Components">
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="number"/>
+                    </tree>
+                  </field>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>
     </record>
 
-    <record model="ir.actions.act_window" id="agro_action_window">
-      <field name="name">Fincas</field>
+    <record model="ir.actions.act_window" id="agro_finca_action_window">
+      <field name="name">Lista de fincas</field>
       <field name="res_model">agro.farm</field>
       <field name="view_mode">list,form</field>
-    </record> 
-
-    <menuitem 
-    name="Fincas" 
-    id="agro_menu" 
-    parent="sale.sale_menu_root"            
-    action="agro_action_window"
-    sequence="1"/>
+    </record>
 
   <!-- End Farm Views -->
+
+  <menuitem 
+  name="Agrícola" 
+  id="agro_menu_root" 
+  parent=""            
+  action="agro_finca_action_window"
+  sequence="28"/>
+
+  <menuitem 
+  name="Fincas" 
+  id="finca_menu" 
+  parent="agro_menu_root"            
+  action="agro_finca_action_window"
+  sequence="1"/>
+
+  <menuitem 
+  name="Parcelas" 
+  id="parcela_menu" 
+  parent="agro_menu_root"            
+  action="agro_parcela_action_window"
+  sequence="2"/>
 
     <!-- server action to the one above -->
 <!--
