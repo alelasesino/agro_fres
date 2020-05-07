@@ -88,7 +88,10 @@
             <notebook>
               <page string="Parcelas">
                   <field name="parcel_ids" widget="one2many_list">
-                    <tree string="Components">
+                    <tree string="Components" editable="bottom">
+                      <control>
+                        <create name="add_parcel_control" string="Añadir una parcela"/>
+                      </control>
                       <field name="name"/>
                       <field name="description"/>
                       <field name="number"/>
