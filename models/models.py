@@ -8,9 +8,10 @@ class Farm(models.Model):
     _description = 'Modelo de finca'
     #_rec_name = 'name'
 
-    name = fields.Char(string='Nombre')
+    name = fields.Char(string='Nombre', required=True)
     description = fields.Char(string='Descripción')
-    code = fields.Char(string='Referencia Interna')
+    code = fields.Char(string='Referencia Interna', required=True)
+    partner_id = fields.Many2one('res.partner', 'Compañia', required=True)
     parcel_ids = fields.One2many('agro.farm.parcel', 'farm_id', string='Parcelas', auto_join=True)
 
     @api.depends('name', 'code')
@@ -25,8 +26,8 @@ class Parcel(models.Model):
     _description = 'Modelo de parcela'
     #_rec_name = 'name'
 
-    name = fields.Char(string='Nombre')
+    name = fields.Char(string='Nombre', required=True)
     description = fields.Char(string='Descripción')
-    number = fields.Char(string='Número')
+    number = fields.Char(string='Número', required=True)
     farm_id = fields.Many2one('agro.farm', 'Finca', ondelete='cascade', auto_join=True, required=True)
 
