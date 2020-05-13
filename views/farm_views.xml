@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="farm_list">
+      <field name="name">farm.list.name</field>
+      <field name="model">agro.farm</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de fincas">
+          <field name="name"/>
+          <field name="description"/>
+          <field name="code"/>
+          <field name="partner_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="farm_form">
+      <field name="name">farm.form.name</field>
+      <field name="model">agro.farm</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de finca">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                  <field name="name" readonly="1"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="description"/>
+              </group>
+              <group>
+                <field name="code"/>
+                <field name="partner_id"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Parcelas">
+                  <field name="parcel_ids" widget="one2many_list" context="{'default_farm_id': id, 'default_is_editable': False}">
+                    <tree string="Components">
+                      <control>
+                        <create name="add_parcel_control" string="Añadir una parcela"/>
+                      </control>
+                      <field name="name"/>
+                      <field name="description"/>
+                      <field name="number"/>
+                    </tree>
+                  </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="agro_finca_action_window">
+      <field name="name">Lista de fincas</field>
+      <field name="res_model">agro.farm</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+  <menuitem 
+  name="Agrícola" 
+  id="agro_menu_root" 
+  parent=""            
+  action="agro_finca_action_window"
+  sequence="28"/>
+
+  <menuitem 
+  name="Fincas" 
+  id="finca_menu" 
+  parent="agro_menu_root"            
+  action="agro_finca_action_window"
+  sequence="1"/>
+
+  </data>
+</odoo>
