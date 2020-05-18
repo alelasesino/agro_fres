@@ -48,8 +48,8 @@
     </record>
 
   <menuitem 
-  name="Parcelas" 
   id="parcela_menu" 
+  name="Parcelas" 
   parent="agro_menu_root"            
   action="agro_parcela_action_window"
   sequence="2"/>

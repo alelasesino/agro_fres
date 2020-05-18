@@ -61,15 +61,15 @@
     </record>
 
   <menuitem 
-  name="Agrícola" 
   id="agro_menu_root" 
+  name="Agrícola" 
   parent=""            
   action="agro_finca_action_window"
   sequence="28"/>
 
   <menuitem 
-  name="Fincas" 
   id="finca_menu" 
+  name="Fincas" 
   parent="agro_menu_root"            
   action="agro_finca_action_window"
   sequence="1"/>
