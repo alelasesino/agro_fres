@@ -55,12 +55,12 @@
       <field name="context">{'module': 'agro_fres'}</field>
     </record>
 
-  <menuitem
-  id="agro_settings_menu"
-  name="Configuración"
-  parent="agro_menu_root"    
-  action="agro_settings_action_window"
-  sequence="3"/>
+    <menuitem
+    id="agro_settings_menu"
+    name="Configuración"
+    parent="agro_menu_root"    
+    action="agro_settings_action_window"
+    sequence="3"/>
 
   </data>
 </odoo>

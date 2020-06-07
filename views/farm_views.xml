@@ -60,19 +60,19 @@
       <field name="view_mode">list,form</field>
     </record>
 
-  <menuitem 
-  id="agro_menu_root" 
-  name="Agrícola" 
-  parent=""            
-  action="agro_finca_action_window"
-  sequence="28"/>
+    <menuitem 
+    id="agro_menu_root" 
+    name="Agrícola" 
+    parent=""            
+    action="agro_finca_action_window"
+    sequence="28"/>
 
-  <menuitem 
-  id="finca_menu" 
-  name="Fincas" 
-  parent="agro_menu_root"            
-  action="agro_finca_action_window"
-  sequence="1"/>
+    <menuitem 
+    id="finca_menu" 
+    name="Fincas" 
+    parent="agro_menu_root"            
+    action="agro_finca_action_window"
+    sequence="1"/>
 
   </data>
 </odoo>
