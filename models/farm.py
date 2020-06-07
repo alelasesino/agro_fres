@@ -20,3 +20,4 @@ class Farm(models.Model):
         for field in self:
             res.append((field.id, f'[{field.code}] {field.name}'))
         return res
+
