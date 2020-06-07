@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Agro Fres",
+    'name': "Agricultura",
 
     'summary': """
         Modulo orientado a la producción agricola""",
