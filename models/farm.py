@@ -14,6 +14,8 @@ class Farm(models.Model):
 
     @api.depends('name', 'code')
     def name_get(self):
+        # Devuelve el formato que tendrá el nombre de la finca, 
+        # el formato establecido es ['code'] 'name'
         res = []
         for field in self:
             res.append((field.id, f'[{field.code}] {field.name}'))

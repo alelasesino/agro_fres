@@ -21,6 +21,9 @@ class AgroSettings(models.TransientModel):
 
     @api.model
     def get_values(self):
+        # Se obtienen los valores de los diferentes 
+        # parametros guardados en la configuración del módulo, 
+        # en caso de que no existan valores previos guardados se obtienen valores por defecto
         res = super(AgroSettings, self).get_values()
         ir_config = self.env['ir.config_parameter'].sudo()
 
@@ -33,6 +36,8 @@ class AgroSettings(models.TransientModel):
 
 
     def set_values(self):
+        # Se establecen los valores de los diferentes
+        # parametros guardados en la configuración del módulo
         super(AgroSettings, self).set_values()
 
         ir_config = self.env['ir.config_parameter'].sudo()
