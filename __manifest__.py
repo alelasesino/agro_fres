@@ -23,10 +23,10 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'views/farm_views.xml',
         'views/parcel_views.xml',
         'views/settings.xml',
+        'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
     'demo': [
