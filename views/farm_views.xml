@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-
+  
     <record model="ir.ui.view" id="farm_list">
       <field name="name">farm.list.name</field>
       <field name="model">agro.farm</field>
@@ -74,5 +74,4 @@
     action="agro_finca_action_window"
     sequence="1"/>
 
-  </data>
 </odoo>
