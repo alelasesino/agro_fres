@@ -1,5 +1,4 @@
 <odoo>
-  <data>
 
     <record model="ir.ui.view" id="farm_parcel_list">
       <field name="name">farm.parcel.list.name</field>
@@ -54,5 +53,4 @@
     action="agro_parcela_action_window"
     sequence="2"/>
 
-  </data>
 </odoo>
