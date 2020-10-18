@@ -20,4 +20,4 @@ class Farm(models.Model):
     description = fields.Char(string='Descripción')
     code = fields.Char(string='Referencia Interna', required=True)
     partner_id = fields.Many2one('res.partner', 'Compañia', required=True)
-    parcel_ids = fields.One2many('agro.farm.parcel', 'farm_id', string='Parcelas', auto_join=True)
+    parcel_ids = fields.One2many('agro.farm.parcel', 'farm_id', string='Parcelas')
