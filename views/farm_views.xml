@@ -72,6 +72,6 @@
     name="Fincas" 
     parent="agro_menu_root"            
     action="agro_finca_action_window"
-    sequence="1"/>
+    sequence="10"/>
 
 </odoo>

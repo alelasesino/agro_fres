@@ -51,6 +51,6 @@
     name="Parcelas" 
     parent="agro_menu_root"            
     action="agro_parcela_action_window"
-    sequence="2"/>
+    sequence="20"/>
 
 </odoo>
