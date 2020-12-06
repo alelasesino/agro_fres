@@ -28,6 +28,7 @@
               <group>
                 <field name="name"/>
                 <field name="description"/>
+                <field name="variety"/>
               </group>
               <group>
                 <field name="number"/>
