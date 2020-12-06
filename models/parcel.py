@@ -12,3 +12,4 @@ class Parcel(models.Model):
     number = fields.Char(string='Número', required=True)
     farm_id = fields.Many2one('agro.farm', 'Finca', ondelete='cascade', required=True)
     is_editable = fields.Boolean(default=True, store=False)
+    variety = fields.Char(string="Variedad")
