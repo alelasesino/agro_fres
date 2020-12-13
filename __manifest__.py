@@ -19,13 +19,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'stock'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
         'views/farm_views.xml',
         'views/parcel_views.xml',
-        'views/settings.xml',
         'security/ir.model.access.csv',
     ],
 }
