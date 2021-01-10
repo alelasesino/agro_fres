@@ -28,7 +28,6 @@
               <group>
                 <field name="name"/>
                 <field name="description"/>
-                <field name="variety"/>
               </group>
               <group>
                 <field name="number"/>
@@ -36,6 +35,19 @@
                 <field name="is_editable" invisible="1"/>
               </group>
             </group>
+            <notebook>
+              <page string="Plantas">
+                  <field name="parcel_line_ids" widget="one2many_list" context="{'default_parcel_id': id}">
+                    <tree string="Components" editable="bottom">
+                      <control>
+                        <create name="add_plant_control" string="Añadir planta"/>
+                      </control>
+                      <field name="plant_id" string="Nombre"/>
+                      <field name="quantity"/>
+                    </tree>
+                  </field>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>

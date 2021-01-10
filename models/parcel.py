@@ -11,5 +11,15 @@ class Parcel(models.Model):
     description = fields.Char(string='Descripción')
     number = fields.Char(string='Número', required=True)
     farm_id = fields.Many2one('agro.farm', 'Finca', ondelete='cascade', required=True)
+    parcel_line_ids = fields.One2many('agro.farm.parcel.line', 'parcel_id', string='Plantas')
     is_editable = fields.Boolean(default=True, store=False)
-    variety = fields.Char(string="Variedad")
+
+
+class ParcelLine(models.Model):
+    _name = 'agro.farm.parcel.line'
+    _description = 'Modelo de linea de parcela'
+    #_rec_name = 'name'
+
+    parcel_id = fields.Many2one('agro.farm.parcel', 'Parcela', required=True)
+    plant_id = fields.Many2one('agro.plant', 'Planta', required=True)
+    quantity = fields.Integer('Cantidad')

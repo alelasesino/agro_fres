@@ -25,6 +25,8 @@
     'data': [
         'views/farm_views.xml',
         'views/parcel_views.xml',
+        'views/plant_views.xml',
+        'report/report_templates.xml',
         'security/ir.model.access.csv',
     ],
 }

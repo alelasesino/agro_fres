@@ -1,0 +1,57 @@
+<odoo>
+
+    <record model="ir.ui.view" id="plant_list">
+      <field name="name">plant.list</field>
+      <field name="model">agro.plant</field>
+      <field name="arch" type="xml">
+        <tree string="Lista de plantas">
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="plant_form">
+      <field name="name">plant.form</field>
+      <field name="model">agro.plant</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de plantas">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                  <field name="name" readonly="1"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <field name="name"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Detalles">
+                <group>
+                  <group>
+                    <field name="description"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="agro_plant_action_window">
+      <field name="name">Lista de plantas</field>
+      <field name="res_model">agro.plant</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem 
+    id="plant_menu" 
+    name="Plantas" 
+    parent="agro_menu_root"            
+    action="agro_plant_action_window"
+    sequence="30"/>
+
+</odoo>
