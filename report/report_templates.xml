@@ -1,0 +1,37 @@
+<odoo>
+  <template id="standar_header">
+    <t t-if="o and 'company_id' in o">
+      <t t-set="company" t-value="o.company_id"></t>
+    </t>
+    <t t-if="not o or not 'company_id' in o">
+      <t t-set="company" t-value="res_company"></t>
+    </t>
+    <div class="header">
+      <div class="row mt32 mb32">
+        <div class="col-6">
+          <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 100px;" />
+        </div>
+        <div class="col-6 text-right" style="font:16px lucida-console,sans-serif !important;">
+          <span t-field="company.partner_id" />
+          <br />
+          <span style="color:#4C4C4C !important;" t-field="company.partner_id.street" />
+          <br />
+          <t t-if="company.partner_id.street2">
+            <span style="color:#4C4C4C !important;" t-field="company.partner_id.street2" />
+            <br />
+          </t>
+          <span style="color:#4C4C4C !important;" t-field="company.partner_id.city" />
+          <br />
+          <span style="color:#4C4C4C !important;" t-field="company.partner_id.zip" />
+          <br />
+          <t t-if="company.partner_id.country_id">
+            <span style="color:#4C4C4C !important;" t-field="company.partner_id.country_id" />
+            <br />
+          </t>
+          <span style="color:#4C4C4C !important;" t-field="company.partner_id.vat" />
+          <br />
+        </div>
+      </div>
+    </div>
+  </template>
+</odoo>
